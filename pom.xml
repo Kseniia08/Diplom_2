@@ -17,6 +17,7 @@
         <allure.version>2.18.1</allure.version>
     </properties>
 
+
     <build>
         <pluginManagement>
             <plugins>
