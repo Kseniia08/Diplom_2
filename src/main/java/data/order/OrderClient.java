@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import data.RestClient;
 import data.user.Token;
+import io.qameta.allure.Step;
 
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class OrderClient extends RestClient {
         return ingredientsForBurger;
     }
 
+    @Step("Создание заказа с автризацией пользователя")
     public Order createOrderWithAuthUser(Token token, Ingredients ingredientsForBurger) {
         var response = reqSpec
                 .header("authorization", token.getAccessToken())
@@ -47,7 +49,7 @@ public class OrderClient extends RestClient {
         return new Gson().fromJson(element, Order.class);
     }
 
-
+    @Step("Создание заказа без авторизации пользователя")
     public Order createOrderWihtoutAuthUser(Ingredients ingredientsForBurger) {
         var response = reqSpec
                 .body(ingredientsForBurger)
@@ -61,6 +63,7 @@ public class OrderClient extends RestClient {
         return new Gson().fromJson(element, Order.class);
     }
 
+    @Step("Создание заказа без ингредиентов")
     public String createOrderWithoutIngredients(Token token) {
         return reqSpec
                 .header("authorization", token.getAccessToken())
@@ -73,6 +76,7 @@ public class OrderClient extends RestClient {
                 .path("message");
     }
 
+    @Step("Создание заказа с некорректным хещом ингредиентов")
     public void createOrderWitBadHashIngredients(Token token, Ingredients ingredientsForBurger) {
         reqSpec
                 .header("authorization", token.getAccessToken())
@@ -84,6 +88,7 @@ public class OrderClient extends RestClient {
                 .statusCode(404);
     }
 
+    @Step("Получение заказа с авторизацией пользователя")
     public List<Integer> getOrderForAuthUser(Token token) {
         return reqSpec
                 .header("authorization", token.getAccessToken())
@@ -96,6 +101,7 @@ public class OrderClient extends RestClient {
                 .path("orders.number");
     }
 
+    @Step("Получение заказа без авторизации пользователя")
     public String getOrderForNotAuthUser() {
         return reqSpec
                 .when()
