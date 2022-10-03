@@ -1,4 +1,4 @@
-package orderTest;
+package order;
 
 import data.order.Ingredients;
 import data.order.Order;

@@ -1,4 +1,4 @@
-package changeUserData;
+package change_user_data;
 
 import data.user.Token;
 import data.user.User;

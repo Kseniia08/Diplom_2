@@ -1,4 +1,4 @@
-package createUser;
+package create_user;
 
 import data.user.User;
 import data.user.UserClient;
@@ -6,10 +6,11 @@ import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
+
+
 import static org.junit.Assert.assertEquals;
 
-
-public class CreateUserEmptyDataTest {
+public class CreateUserEmptyLoginTest {
     private UserClient userClient;
 
     @Before
@@ -18,13 +19,14 @@ public class CreateUserEmptyDataTest {
     }
 
     @Test
-    @DisplayName("Проверка регистрации с невалидными данными")
-    @Description("Неуспешное регистрация пользователя с пустыми обязательными параметрами")
-    public void createUserEmptyDataTest() {
+    @DisplayName("Проверка регистрации без логина")
+    @Description("Неуспешное регистрация пользователя без заполненной логина")
+    public void createUserEmptyLoginTest() {
         String message = "Создать пользователя неудалось";
         String expected = "Email, password and name are required fields";
-        User user = User.getEmpty();
+        User user = User.getRandomWithoutName("");
         String actual = userClient.createBadUser(user);
         assertEquals(message, expected, actual);
     }
+
 }

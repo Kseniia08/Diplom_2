@@ -1,4 +1,4 @@
-package loginUser;
+package login_user;
 
 import data.user.Token;
 import data.user.User;

@@ -1,4 +1,4 @@
-package changeUserData;
+package change_user_data;
 
 import data.user.Token;
 import data.user.User;
@@ -10,10 +10,10 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
-
-public class ChangeEmailUserDataWithAuthTest {
+public class ChangeLoginUserDataWithAuthTest {
 
     private UserClient userClient;
     private UserClient userClient_delete;
@@ -31,17 +31,17 @@ public class ChangeEmailUserDataWithAuthTest {
     }
 
     @Test
-    @DisplayName("Изменение данных пользователя (изменение почты)")
-    @Description("Успешное изменение данных пользователя (адрес почты) под авторизацией пользователя")
-    public void changeEmailUserDataWithAuthTest() {
-        String message = "Изменить почту пользователя неудалось";
+    @DisplayName("Изменение данных пользователя (изменение логина)")
+    @Description("Успешное изменение данных пользователя (логин) под авторизацией пользователя")
+    public void changeLoginUserDataWithAuthTest() {
+        String message = "Изменить логин пользователя не удалось";
         User user = User.getRandom();
-        String expectedNewEmail = (RandomStringUtils.randomAlphabetic(5).toLowerCase() + "@yandex.ru");
+        String expectedNewName = RandomStringUtils.randomAlphabetic(10);
         token = userClient.create(user);
         UserCredentials creds = UserCredentials.from(user);
         userClient.logout(token);
         token = userClient.login(creds);
-        String actualNewEmail = userClient.changeUserEmail(token, expectedNewEmail);
-        assertEquals(message, expectedNewEmail, actualNewEmail);
+        String actualNewName = userClient.changeUserName(token, expectedNewName);
+        assertEquals(message, expectedNewName, actualNewName);
     }
 }

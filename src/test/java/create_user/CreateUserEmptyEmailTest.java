@@ -1,4 +1,4 @@
-package createUser;
+package create_user;
 
 
 import data.user.User;

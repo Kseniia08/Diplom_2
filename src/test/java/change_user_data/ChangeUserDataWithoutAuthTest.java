@@ -1,4 +1,4 @@
-package changeUserData;
+package change_user_data;
 
 import com.google.gson.JsonObject;
 import data.user.Token;
