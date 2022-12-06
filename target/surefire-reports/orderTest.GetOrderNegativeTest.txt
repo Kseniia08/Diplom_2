@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: orderTest.GetOrderNegativeTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.363 s <<< FAILURE! - in orderTest.GetOrderNegativeTest
+getOrderNegativeTest(orderTest.GetOrderNegativeTest)  Time elapsed: 0.356 s  <<< ERROR!
+java.lang.ClassCastException: class io.restassured.path.xml.XmlPath cannot be cast to class java.util.List (io.restassured.path.xml.XmlPath is in unnamed module of loader 'app'; java.util.List is in module java.base of loader 'bootstrap')
+	at orderTest.GetOrderNegativeTest.getOrderNegativeTest(GetOrderNegativeTest.java:41)
+
+getOrderNegativeTest(orderTest.GetOrderNegativeTest)  Time elapsed: 0.36 s  <<< ERROR!
+java.lang.NullPointerException
+	at orderTest.GetOrderNegativeTest.teardown(GetOrderNegativeTest.java:29)
+
